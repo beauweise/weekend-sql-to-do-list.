@@ -13,7 +13,7 @@ pool.on('connect',()=>{
 });
 
 pool.on('error',error =>{
-    console.log('Error With Postgresql Pool');
+    console.log('Error With Postgresql Pool',error);
     
 });
 
