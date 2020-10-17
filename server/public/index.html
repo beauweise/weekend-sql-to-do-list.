@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="vendors/jquery.js" charset="utf-8"></script>
+    <script src='scripts/client.js' charset='UTF-8'></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>WEEKEND TASKS</title>
+</head>
+
+<body>
+    <header>
+        <H1>Weise Weekend Tasks</H1>
+    </header>
+    <section id='addTask'>
+        <input type="text" id='task' value="" placeholder='TASKS'>
+        <button id='submitBtn' type='button'>ADD TASK</button>
+    </section>
+    <section>
+        <h2>Added Tasks</h2>
+        <table>
+            <thead>
+                <th>Task</th>
+                <th>Complete?</th>
+            </thead>
+            <tbody id='viewAllTasks'>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>
