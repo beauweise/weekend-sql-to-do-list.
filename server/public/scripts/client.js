@@ -69,5 +69,10 @@ function deleteTask() {
 
 function putTask(){
     let taskData = $(this).data('id');
-    
+    $.ajax({
+        method: 'PUT',
+        url:`/tasks/${taskid}`
+    }).then(function (erro) {
+        alert('error in putTask',error)
+    });
 }
