@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 });
 
 // PUT
-router.put('/:id', (req, res) => {
+router.put('/doneYet/:id', (req, res) => {
     console.log('hello from /tasks PUT');
     let taskId = req.params.id;
     let tasksDone = req.body.taskStatus;
@@ -49,12 +49,12 @@ router.put('/:id', (req, res) => {
 //DELETE
 router.delete('/:id', (req, res) => {
     console.log('hello from /tasks DELETE', req.params.id);
-    let taskId = [req.params.id];
+    let taskId = req.params.id;
     let queryText = `DELETE FROM "tasks" WHERE "id" = $1;`;
     
 
     pool.query(queryText, [taskId]).then((result) => {
-        console.log('result from /tasks DELETE');
+        console.log(result);
         res.sendStatus(200);
     }).catch((error) => {
         console.log('error in /tasks DELETE', error);

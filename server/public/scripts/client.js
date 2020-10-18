@@ -1,14 +1,10 @@
-
-
 console.log('JS');
 $(document).ready(function () {
     console.log('JQ');
     getTask();
     $('#submitBtn').on('click', addTask);
     $('#viewAllTasks').on('click', '.deleteBtn', deleteTask);
-    $('#viewAllTasks').on('click', '.deleteBtn', deleteTask);
-
-
+    $('#viewAllTasks').on('click', '.upDateTasks', upDateTasks);
 });
 
 function addTask() {
@@ -41,9 +37,9 @@ function getTask() {
         url: `/tasks`
     }).then(function (response) {
         tasksToDom(response);
-    }).catch(function(error){
+    }).catch(function (error) {
         console.log(error);
-        
+
     });
 }//end get tasks
 
@@ -52,46 +48,45 @@ function deleteTask() {
     console.log(taskId);
     $.ajax({
         method: `DELETE`,
-        url: `/tasks/${taskid}`
-    }).then(function(response){
+        url: `/tasks/${taskId}`
+    }).then(function (response) {
         console.log(response);
         getTask();
-    }).catch(function(error){
+    }).catch(function (error) {
         console.log(error);
     });
 }
 
-function putTask() {
+function upDateTasks() {
     let taskData = $(this).closest('tr').data('id');
     $.ajax({
         method: 'PUT',
-        url: `/tasks/${taskId}`,
-        data:{taskStatus:true}
-    }).then(function(response){
+        url: `/tasks/doneYet/${taskId}`,
+        data: { taskStatus: true }
+    }).then(function (response) {
         console.log(response);
         getTask();
-    }).catch(function(error){
+    }).catch(function (error) {
         console.log(error);
     });
 }
-function tasksToDom(array){
+function tasksToDom(array) {
     $('#viewAllTasks').empty();
-    console.log('cool stuff',array);
-    for (let i = 0; i < array.length; i++){
-        let taco ='';
-        if(array[i].tasksDone === false){
+    console.log('cool stuff', array);
+    for (let i = 0; i < array.length; i++) {
+        let taco = '';
+        if (array[i].tasksDone === false) {
             taco = 'You need to finish this task'
         } else {
-            taco = '<button class="taskDone">I just finished this!</button>'
+            taco = '<button class="upDateTasks">I just finished this!</button>'
 
         }
         $('#viewAllTasks').append(`
             <tr data-id = ${array[i].id}>
-                <td> ${response[i].task}</td>
-                <td>${response[i].taskDone}</td>
-                <td><button data-id = '${response[i].id}' 
-                class = "${response[i].taskDone}">Done?</button></td>
-                <td><button data-id = '${taco}'class = 'deleteBtn'>Delete</button></td>
+                <td> ${array[i].task}</td>
+                <td>${array[i].taskDone}</td>
+                <td>${taco}<td>
+                <td><button data-id = '${taco}' class = 'deleteBtn'>Delete</button></td>
             </tr> `)
     }
 }
