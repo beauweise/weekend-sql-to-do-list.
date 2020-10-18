@@ -7,10 +7,15 @@ $(document).ready(function () {
     $('#viewAllTasks').on('click', '.upDateTasks', upDateTasks);
 });
 
+
+
 function addTask() {
     let task = $('#task').val();
     let completed = $('#completed').val();
-
+    if(task == '' ){// not allowing for empty inputs
+        alert('Please enter all info');
+            return;
+    }
     let tasks = {
         task: task,
         completed: completed
@@ -75,7 +80,7 @@ function tasksToDom(array) {
     console.log('cool stuff', array);
     for (let i = 0; i < array.length; i++) {
         let taco = '';
-        if (array[i].tasksDone === true) {
+        if (array[i].taskDone === true) {
             taco = 'YOU DID IT!!!'
         } else {
             taco = '<button class="upDateTasks">I just finished this!</button>'
@@ -84,10 +89,10 @@ function tasksToDom(array) {
         $('#viewAllTasks').append(`
             <tr data-id = ${array[i].id}>
                 <td> ${array[i].task}</td>
-                <td>${array[i].taskDone}</td>
                 <td>${taco}<td>
                 <td><button data-id = '${taco}' class = 'deleteBtn'>Delete</button></td>
-            </tr> `)
+            </tr> 
+        `);
     }
 }
 
