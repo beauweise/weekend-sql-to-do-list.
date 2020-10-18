@@ -87,7 +87,7 @@ function tasksToDom(array) {
 
         }
         $('#viewAllTasks').append(`
-            <tr data-id = ${array[i].id}>
+            <tr class = 'color' data-id = ${array[i].id}>
                 <td> ${array[i].task}</td>
                 <td>${taco}<td>
                 <td><button data-id = '${taco}' class = 'deleteBtn'>Delete</button></td>

@@ -1,9 +1,20 @@
 .blink_me {
     animation: blinker 1s step-start infinite;
-  }
+   
+}
   
   @keyframes blinker {
     50% {
       opacity: 0;
     }
+  }
+  .color{
+      background-color: red;
+
+  }
+  body{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }
