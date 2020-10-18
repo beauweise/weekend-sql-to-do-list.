@@ -28,6 +28,7 @@ function addTask() {
     }).then((response) => {
         console.log(response);
         getTask();
+        $('#task').val('');
     }).catch((error) => {
         console.log(error);
     });
