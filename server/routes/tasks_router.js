@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     });
 });
 
-POST
+// POST
 router.post('/', (req, res) => {
     console.log('hello from /tasks POST');
     let task = req.body.task;
@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     });
 });
 
-PUT
+// PUT
 router.put('/:id', (req, res) => {
     console.log('hello from /tasks PUT');
     let taskId = req.params.id;
