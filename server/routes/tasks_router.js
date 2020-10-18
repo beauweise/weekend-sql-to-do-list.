@@ -34,13 +34,13 @@ router.post('/', (req, res) => {
 router.put('/doneYet/:id', (req, res) => {
     console.log('hello from /tasks PUT');
     let taskId = req.params.id;
-    let tasksDone = req.body.taskStatus;
+    let taskDone = req.body.taskStatus;
 
-    let queryText = `UPDATE "tasks" SET "tasksDone" = '$1' WHERE "id" =$2;`;
-    pool.query(queryText, [taskId,tasksDone]).then((result) => {
+    let queryText = `UPDATE "tasks" SET "taskDone" = $1 WHERE "id" =$2;`;
+    pool.query(queryText, [taskDone,taskId]).then((result) => {
         console.log('result from /tasks PUT', result.rows);
         res.sendStatus(200);
-    }).catch(error => {
+    }).catch((error) => {
         console.log('error in /tasks PUT', error);
         res.sendStatus(500);
     });

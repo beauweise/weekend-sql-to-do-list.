@@ -58,7 +58,7 @@ function deleteTask() {
 }
 
 function upDateTasks() {
-    let taskData = $(this).closest('tr').data('id');
+    let taskId = $(this).closest('tr').data('id');
     $.ajax({
         method: 'PUT',
         url: `/tasks/doneYet/${taskId}`,
@@ -75,8 +75,8 @@ function tasksToDom(array) {
     console.log('cool stuff', array);
     for (let i = 0; i < array.length; i++) {
         let taco = '';
-        if (array[i].tasksDone === false) {
-            taco = 'You need to finish this task'
+        if (array[i].tasksDone === true) {
+            taco = 'YOU DID IT!!!'
         } else {
             taco = '<button class="upDateTasks">I just finished this!</button>'
 
