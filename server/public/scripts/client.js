@@ -32,8 +32,7 @@ function addTask() {
     }).catch((error) => {
         console.log(error);
     });
-}
-
+}//end addTask
 
 function getTask() {
     console.log('in getTask');
@@ -47,7 +46,7 @@ function getTask() {
         console.log(error);
 
     });
-}//end get tasks
+}//end getTasks
 
 function deleteTask() {
     let taskId = $(this).closest('tr').data('id');
@@ -61,7 +60,7 @@ function deleteTask() {
     }).catch(function (error) {
         console.log(error);
     });
-}
+}//end deleteTask
 
 function upDateTasks() {
     let taskId = $(this).closest('tr').data('id');
@@ -75,7 +74,8 @@ function upDateTasks() {
     }).catch(function (error) {
         console.log(error);
     });
-}
+}// end upDateTasks
+
 function tasksToDom(array) {
     $('#viewAllTasks').empty();
     console.log('cool stuff', array);
@@ -85,7 +85,6 @@ function tasksToDom(array) {
             taco = 'YOU DID IT!!'
         } else {
             taco = '<button class="upDateTasks">I just finished this!</button>'
-
         }
         $('#viewAllTasks').append(`
             <tr class = 'color' data-id = ${array[i].id}>
@@ -95,5 +94,5 @@ function tasksToDom(array) {
             </tr> 
         `);
     }
-}
+}//end tasksToDom
 
