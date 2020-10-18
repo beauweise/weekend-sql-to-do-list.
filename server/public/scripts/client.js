@@ -82,7 +82,7 @@ function tasksToDom(array) {
     for (let i = 0; i < array.length; i++) {
         let taco = '';
         if (array[i].taskDone === true) {
-            taco = 'YOU DID IT!!!'
+            taco = 'YOU DID IT!!'
         } else {
             taco = '<button class="upDateTasks">I just finished this!</button>'
 
@@ -90,8 +90,8 @@ function tasksToDom(array) {
         $('#viewAllTasks').append(`
             <tr class = 'color' data-id = ${array[i].id}>
                 <td> ${array[i].task}</td>
-                <td>${taco}<td>
-                <td><button data-id = '${taco}' class = 'deleteBtn'>Delete</button></td>
+                <td class = 'red'>${taco}<td>
+                <button data-id = '${taco}' class = 'deleteBtn'>Delete</button>
             </tr> 
         `);
     }

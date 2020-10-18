@@ -1,6 +1,6 @@
 .blink_me {
     animation: blinker 1s step-start infinite;
-   
+   font-size: 350%;
 }
   
   @keyframes blinker {
@@ -9,7 +9,7 @@
     }
   }
   .color{
-      background-color: red;
+      background-color: gray;
 
   }
   body{
@@ -17,4 +17,13 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    background-color: lightskyblue;
   }
+  
+  table, th, td {
+    border: 2px solid black;
+  }
+  .red{
+      background-color: green;
+  }
+  
